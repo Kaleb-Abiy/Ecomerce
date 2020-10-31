@@ -1,0 +1,30 @@
+{% load static %}
+<nav class="navbar navbar-expand-sm navbar-light bg-light fixed-top" style="background-color: #dede21 !important;">
+   <div class="container">     
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="{% url 'home' %}"><strong>K-Store</strong></a>
+      
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#"><strong>About</strong> <span class="sr-only">(current)</span></a>
+                </li>
+    
+                </ul>      
+          <div class="form-inline my-2 my-lg-0" style="float: right;">
+            {% if user.is_authenticated  %}
+            <a href="{% url 'logout'%}"class="btn btn-warning mr-3">Logout</a>
+            <a href="{% url 'cart' %}">
+                <img  id="cart-icon" src="{% static 'img/cart.png' %}">
+              </a>
+             <p id="cart-total"></p>
+            {% else %}
+             <a href="{% url 'register' %}"class="btn btn-warning mr-4">Register</a>
+             <a href="{% url 'login'%}"class="btn btn-warning mr-3">Login</a>
+            {% endif %}
+            </div> 
+          </div>
+        </div>
+      </nav>

@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="row">
+{% for product in products %} 
+<div class="col-md-3">
+<div class="card mb-5" >
+    <img src="{{product.image.url}}" class="card-img-top">
+    <div class="card-body">
+      <h5 class="card-title">{{product.name}}</h5>
+      <h4 style="display: inline-block; float: right"><strong>${{product.price}}</strong></h4>
+        <a href="{% url 'add' product.id %}" class="btn btn-primary">Add to cart</a>
+      
+    </div>
+</div>
+</div>
+ {% endfor %}
+ </div>
+{% endblock %}
